@@ -1,9 +1,7 @@
-/*package com.sample.project.dao;
+package com.ankitprasad.indianmonuments.dao;
 
 import java.util.List;
 
-
- 
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.SessionFactory;
@@ -11,8 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import Users;
-
+import com.ankitprasad.indianmonuments.model.User;
 
  
 @Repository
@@ -30,10 +27,10 @@ public class UserDaoImpl implements UserDao {
  
     @Override
     @Transactional
-    public List<Users> list() {
+    public List<User> list() {
         @SuppressWarnings("unchecked")
-        List<Users> listUser = (List<Users>) sessionFactory.getCurrentSession()
-                .createCriteria(Users.class)
+        List<User> listUser = (List<User>) sessionFactory.getCurrentSession()
+                .createCriteria(User.class)
                 .setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY).list();
  
         return listUser;
@@ -41,26 +38,26 @@ public class UserDaoImpl implements UserDao {
  
     @Override
     @Transactional
-    public void saveOrUpdate(Users user) {
+    public void saveOrUpdate(User user) {
         sessionFactory.getCurrentSession().saveOrUpdate(user);
     }
     
     @Override
     @Transactional
     public void delete(int id) {
-        Users userToDelete = new Users();
+        User userToDelete = new User();
         userToDelete.setId(id);
         sessionFactory.getCurrentSession().delete(userToDelete);
     }
  
     @Override
     @Transactional
-    public Users get(int id) {
+    public User get(int id) {
         String hql = "from User where id=" + id;
         Query query = sessionFactory.getCurrentSession().createQuery(hql);
          
         @SuppressWarnings("unchecked")
-        List<Users> listUser = (List<Users>) query.list();
+        List<User> listUser = (List<User>) query.list();
          
         if (listUser != null && !listUser.isEmpty()) {
             return listUser.get(0);
@@ -68,6 +65,22 @@ public class UserDaoImpl implements UserDao {
          
         return null;
     }
+
+	@Override
+    @Transactional
+	public User authenticate(String username, String password) {
+		  String hql = "from User where username='" + username + "' and passwd = '" + password + "'";
+		  
+	        Query query = sessionFactory.getCurrentSession().createQuery(hql);
+	         
+	        @SuppressWarnings("unchecked")
+	        List<User> listUser = (List<User>) query.list();
+	         
+	        if (listUser != null && !listUser.isEmpty()) {
+	            return listUser.get(0);
+	        }
+	         
+	        return null;
+	}
 }
  
-*/

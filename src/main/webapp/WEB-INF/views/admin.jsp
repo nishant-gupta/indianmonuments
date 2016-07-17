@@ -6,11 +6,10 @@
 </head>
 <body>
 <h1>
-	 Welcome to Indian Monument Eticketing System  
+	 Welcome to Indian Monument Eticketing System - ADMIN CONSOLE  
 </h1>
 
-
-<a href = "login">Login</a>
+ ${serverTime}
 </body>
 </html>
 

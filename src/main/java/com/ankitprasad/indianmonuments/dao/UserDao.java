@@ -2,15 +2,17 @@ package com.ankitprasad.indianmonuments.dao;
 
 import java.util.List;
 
-import com.ankitprasad.indianmonuments.model.Users;
+import com.ankitprasad.indianmonuments.model.User;
 
 
 public interface UserDao {
-    public List<Users> list();
+    public List<User> list();
      
-    public Users get(int id);
+    public User get(int id);
      
-    public void saveOrUpdate(Users user);
+    public void saveOrUpdate(User user);
      
     public void delete(int id);
+    
+    public User authenticate(String username, String password);
 }

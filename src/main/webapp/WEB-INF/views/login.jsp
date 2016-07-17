@@ -10,7 +10,7 @@
 <title>Login</title>
 </head>
 <body>
-<form:form name="submitForm" method="POST">
+<form:form name="submitForm" method="POST" action="login">
         <div align="center">
             <table>
                 <tr>
@@ -32,6 +32,7 @@
                 
             </table>
             <div style="color: red">${error}</div>
+            <div style="color: blue">${msg}</div>
         </div>
     </form:form>
 </body>

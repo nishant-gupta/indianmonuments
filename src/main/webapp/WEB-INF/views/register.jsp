@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td>Confirm Password:</td>
-                    <td><input type="password" name="password" /></td>
+                    <td><input type="password" name="confirmPassword" /></td>
                 </tr>
                 <tr>
                     <td>First Name:</td>
@@ -46,6 +46,7 @@
                
                 
             </table>
+            <div style="color: red">${msg}</div>
            
     </form:form>
 </body>

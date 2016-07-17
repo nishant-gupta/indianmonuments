@@ -10,6 +10,9 @@
 </h1>
 
  ${serverTime}
+<a href="logout">Logout</a> 
+
+
 </body>
 </html>
 
